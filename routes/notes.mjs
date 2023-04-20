@@ -57,7 +57,7 @@ router.put('/editnote/:id', fetchUser,
         if (description) newNote.description = description;
         if (tag) newNote.tag = tag;
         const d = new Date();
-        newNote.data = d.setDate(d.getDate()); 
+        newNote.date = d.setDate(d.getDate()); 
         
 
         try {
