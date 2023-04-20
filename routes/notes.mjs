@@ -56,6 +56,9 @@ router.put('/editnote/:id', fetchUser,
         if (title) newNote.title = title;
         if (description) newNote.description = description;
         if (tag) newNote.tag = tag;
+        const d = new Date();
+        newNote.data = d.setDate(d.getDate()); 
+        
 
         try {
 
@@ -81,7 +84,7 @@ router.put('/editnote/:id', fetchUser,
 router.delete('/deletenote/:id', fetchUser, async (req, res) => {
     try {
         let note = await notesModel.findById(req.params.id);
-        
+
         if (!note) {
             return res.status(400).send("Note not found!")
         }
